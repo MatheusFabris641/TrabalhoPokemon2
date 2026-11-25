@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Montador De Times PokéMon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/pok.css">
+</head>
+
+<body>
+
+    <!-- Cabeçalho: botão Times, nome do site e pokébola -->
+    <header class="cabecalho">
+        <button type="button" id="btn-times" class="botao-times">Times</button>
+        <h1 class="nome-site">Pokedex</h1>
+        <img class="foto" src="foto/images-removebg-preview.png" alt="Pokébola">
+    </header>
+
+    <main>
+
+        <!-- Painel 1: pesquisa e resultados (os cards são criados pelo JavaScript) -->
+        <section class="container">
+            <div class="topo">
+                <h1 class="titulo">Escolha seus Pokémons</h1>
+                <input type="text" id="busca" class="caixa-pesquisa" placeholder="Digite um nome...">
+                <button id="btn-pesquisar" class="botao botao-pesquisar">Pesquisar</button>
+                <button id="btn-filtro" class="botao botao-filtro">Filtro</button>
+
+                <!-- Filtro por tipo (começa escondido) -->
+                <div id="painel-filtro" class="painel-filtro oculto">
+                    <label for="filtro-tipo">Tipo:</label>
+                    <select id="filtro-tipo" class="caixa-select">
+                        <option value="">Todos</option>
+                        <option value="fire">Fogo</option>
+                        <option value="water">Água</option>
+                        <option value="grass">Planta</option>
+                        <option value="electric">Elétrico</option>
+                        <option value="psychic">Psíquico</option>
+                        <option value="ice">Gelo</option>
+                        <option value="dragon">Dragão</option>
+                        <option value="dark">Sombrio</option>
+                        <option value="fairy">Fada</option>
+                        <option value="normal">Normal</option>
+                        <option value="fighting">Lutador</option>
+                        <option value="flying">Voador</option>
+                        <option value="poison">Veneno</option>
+                        <option value="ground">Terra</option>
+                        <option value="rock">Pedra</option>
+                        <option value="bug">Inseto</option>
+                        <option value="ghost">Fantasma</option>
+                        <option value="steel">Aço</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="resultados" class="lista"></div>
+        </section>
+
+        <!-- Painel 2: seu time (os cards são criados pelo JavaScript) -->
+        <section class="container">
+            <div class="topo">
+                <div class="titulo-linha">
+                    <h1 class="titulo">Seu time (<span id="contador">0</span>/6)</h1>
+                    <button type="button" id="btn-salvar-time" class="botao botao-add">Salvar time</button>
+                </div>
+            </div>
+
+            <div id="time" class="lista"></div>
+        </section>
+
+    </main>
+
+    <!-- Barra lateral com os times salvos (escondida até clicar em "Times") -->
+    <div id="fundo-barra" class="fundo-barra oculto"></div>
+    <aside id="barra-times" class="barra-times" aria-label="Times salvos">
+        <div class="barra-topo">
+            <h2 class="titulo">Times salvos</h2>
+            <button type="button" id="btn-fechar-barra" class="botao botao-filtro botao-mini" aria-label="Fechar barra">✕</button>
+        </div>
+        <div id="lista-times" class="lista-times"></div>
+    </aside>
+
+    <!-- Aviso para digitar o nome do time -->
+    <div id="modal-salvar" class="fundo oculto">
+        <div class="aviso" role="dialog" aria-modal="true" aria-labelledby="titulo-modal">
+            <h2 id="titulo-modal" class="titulo">Salvar time</h2>
+            <label for="nome-time">Nome do time</label>
+            <input type="text" id="nome-time" class="caixa-pesquisa" placeholder="Ex.: Time Kanto" maxlength="30">
+            <p id="erro-modal" class="erro-campo"></p>
+            <div class="botoes">
+                <button type="button" id="btn-cancelar-modal" class="botao botao-filtro">Cancelar</button>
+                <button type="button" id="btn-confirmar-salvar" class="botao botao-add">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Aviso de erro (aparece no topo da página) -->
+    <div id="aviso-erro" class="aviso-erro oculto" role="alert">
+        <div class="aviso-erro-texto">
+            <strong id="aviso-erro-titulo"></strong>
+            <span id="aviso-erro-detalhe"></span>
+        </div>
+        <button type="button" id="btn-fechar-erro" class="botao botao-filtro botao-mini" aria-label="Fechar aviso">✕</button>
+    </div>
+
+    <script src="js/pok.js"></script>
+</body>
+
+</html>
