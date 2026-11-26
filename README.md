@@ -49,7 +49,6 @@ Os dados dos Pokémon são obtidos pela [PokéAPI](https://pokeapi.co/).
 
 ## Organização dos arquivos
 
-``
 
 -   `index.html`: contém os elementos e as seções da página.
 -   `css/pok.css`: define o visual e o layout do projeto.
